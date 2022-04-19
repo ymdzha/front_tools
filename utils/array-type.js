@@ -21,3 +21,9 @@ export function deepClone (origin) {
 export function distinct (a, b) {
   return Array.from(new Set([...a, ...b]))
 }
+
+// 根据key值分组
+export function arrGroup(arr, fn, currentId) {
+  const keyArr = [...new Set(arr.map(item => fn(item)))];
+  return keyArr.map(key => arr.filter(i => i[currentId] === key))
+}
